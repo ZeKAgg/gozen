@@ -1,0 +1,77 @@
+{
+  "name": "gozen",
+  "displayName": "Gozen",
+  "description": "Format, lint, and analyze GDScript with Gozen LSP",
+  "version": "0.1.0",
+  "publisher": "ZeKAgg",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Linters",
+    "Formatters",
+    "Programming Languages"
+  ],
+  "activationEvents": [
+    "onLanguage:gdscript",
+    "onLanguage:gdshader",
+    "onCommand:gozen.restartLanguageServer"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "gozen.restartLanguageServer",
+        "title": "Restart Language Server",
+        "category": "Gozen"
+      }
+    ],
+    "configuration": {
+      "title": "Gozen",
+      "properties": {
+        "gozen.enable": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable the Gozen language server."
+        },
+        "gozen.path": {
+          "type": "string",
+          "default": "gozen",
+          "description": "Path to the gozen executable."
+        },
+        "gozen.trace.server": {
+          "type": "string",
+          "enum": [
+            "off",
+            "messages",
+            "verbose"
+          ],
+          "default": "off",
+          "description": "Trace communication between VS Code and Gozen language server."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "lint": "eslint \"src/**/*.ts\"",
+    "test:smoke": "node ./out/test/smoke.test.js",
+    "test:unit": "node --test ./out/test/extension.unit.test.js",
+    "test": "npm run compile && npm run test:smoke && npm run test:unit"
+  },
+  "devDependencies": {
+    "@types/node": "^25.3.0",
+    "@types/vscode": "^1.85.0",
+    "@typescript-eslint/eslint-plugin": "^8.46.0",
+    "@typescript-eslint/parser": "^8.46.0",
+    "eslint": "^10.0.0",
+    "typescript": "^5.4.5"
+  },
+  "dependencies": {
+    "vscode-languageclient": "^9.0.1"
+  },
+  "overrides": {
+    "minimatch": "^10.2.1"
+  }
+}
