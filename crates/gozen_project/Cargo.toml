@@ -1,0 +1,10 @@
+[package]
+name = "gozen_project"
+version.workspace = true
+edition.workspace = true
+
+[dependencies]
+gozen_parser = { path = "../gozen_parser" }
+gozen_diagnostics = { path = "../gozen_diagnostics" }
+anyhow.workspace = true
+walkdir.workspace = true
