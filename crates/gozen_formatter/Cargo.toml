@@ -1,0 +1,9 @@
+[package]
+name = "gozen_formatter"
+version.workspace = true
+edition.workspace = true
+
+[dependencies]
+gozen_parser = { path = "../gozen_parser" }
+gozen_config = { path = "../gozen_config" }
+gozen_diagnostics = { path = "../gozen_diagnostics" }
