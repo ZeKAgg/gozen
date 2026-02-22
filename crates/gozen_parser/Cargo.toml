@@ -1,0 +1,10 @@
+[package]
+name = "gozen_parser"
+version.workspace = true
+edition.workspace = true
+
+[dependencies]
+tree-sitter.workspace = true
+tree-sitter-gdscript.workspace = true
+tree-sitter-gdshader.workspace = true
+gozen_diagnostics = { path = "../gozen_diagnostics" }
