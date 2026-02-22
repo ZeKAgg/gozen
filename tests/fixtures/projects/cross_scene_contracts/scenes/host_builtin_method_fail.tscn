@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="PackedScene" path="res://scenes/child_builtin_method_fail.tscn" id="1"]
+
+[node name="HostBuiltinMethodFail" type="Node2D"]
+
+[node name="ChildBuiltinMethodFail" parent="." instance=ExtResource("1")]

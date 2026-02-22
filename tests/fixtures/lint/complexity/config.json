@@ -1,0 +1,20 @@
+{
+  "linter": {
+    "rules": {
+      "recommended": true,
+      "style": {
+        "cognitiveComplexity": "warn",
+        "cyclomaticComplexity": "warn"
+      }
+    }
+  },
+  "shader": {
+    "rules": {
+      "recommended": true,
+      "shader": {
+        "cognitiveComplexity": "warn",
+        "cyclomaticComplexity": "warn"
+      }
+    }
+  }
+}

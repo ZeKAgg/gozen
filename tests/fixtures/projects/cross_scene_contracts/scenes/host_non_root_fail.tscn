@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="PackedScene" path="res://scenes/child_non_root.tscn" id="1"]
+
+[node name="HostNonRootFail" type="Node2D"]
+
+[node name="Anchor" type="Node2D" parent="."]
+
+[node name="ChildNonRoot" parent="Anchor" instance=ExtResource("1")]

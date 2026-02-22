@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="PackedScene" path="res://scenes/child_parent_traversal.tscn" id="1"]
+
+[node name="HostTraversalFail" type="Node2D"]
+
+[node name="Anchor" type="Node2D" parent="."]
+
+[node name="ChildTraversal" parent="Anchor" instance=ExtResource("1")]

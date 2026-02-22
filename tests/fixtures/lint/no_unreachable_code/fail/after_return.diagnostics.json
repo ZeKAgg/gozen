@@ -1,0 +1,11 @@
+[
+  {
+    "rule": "correctness/noUnreachableCode",
+    "severity": "error",
+    "startLine": 4,
+    "startCol": 1,
+    "endLine": 4,
+    "endCol": 21,
+    "messageContains": "Unreachable"
+  }
+]
