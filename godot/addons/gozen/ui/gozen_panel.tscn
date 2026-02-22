@@ -1,0 +1,71 @@
+[gd_scene load_steps=2 format=3 uid="uid://gozen_panel"]
+
+[ext_resource type="Script" path="res://addons/gozen/ui/gozen_panel.gd" id="1"]
+
+[node name="GozenPanel" type="VBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_minimum_size = Vector2(0, 200)
+script = ExtResource("1")
+
+[node name="Toolbar" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="BtnCheckProject" type="Button" parent="Toolbar"]
+layout_mode = 2
+text = "Check Project"
+tooltip_text = "Run gozen check on the entire project"
+
+[node name="BtnFormatProject" type="Button" parent="Toolbar"]
+layout_mode = 2
+text = "Format Project"
+tooltip_text = "Run gozen format on the entire project"
+
+[node name="Sep1" type="VSeparator" parent="Toolbar"]
+layout_mode = 2
+
+[node name="BtnLintFile" type="Button" parent="Toolbar"]
+layout_mode = 2
+text = "Lint File"
+tooltip_text = "Lint the currently active script"
+
+[node name="BtnFormatFile" type="Button" parent="Toolbar"]
+layout_mode = 2
+text = "Format File"
+tooltip_text = "Format the currently active script"
+
+[node name="Sep2" type="VSeparator" parent="Toolbar"]
+layout_mode = 2
+
+[node name="BtnSettings" type="Button" parent="Toolbar"]
+layout_mode = 2
+text = "Settings"
+tooltip_text = "Configure Gozen settings"
+
+[node name="Spacer" type="Control" parent="Toolbar"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SummaryLabel" type="Label" parent="Toolbar"]
+layout_mode = 2
+text = ""
+horizontal_alignment = 2
+
+[node name="ErrorTree" type="Tree" parent="."]
+layout_mode = 2
+size_flags_vertical = 3
+columns = 4
+allow_reselect = true
+visible = false
+
+[node name="PlaceholderLabel" type="Label" parent="."]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_alignment = 1
+vertical_alignment = 1
+text = "Run a check to get started."
+
+[node name="StatusBar" type="Label" parent="."]
+layout_mode = 2
+text = "Ready"
