@@ -1,0 +1,39 @@
+[package]
+name = "gozen"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+homepage.workspace = true
+description.workspace = true
+keywords.workspace = true
+categories.workspace = true
+
+[lib]
+path = "src/lib.rs"
+
+[[bin]]
+name = "gozen"
+path = "src/main.rs"
+
+[dependencies]
+gozen_config = { path = "../gozen_config" }
+gozen_parser = { path = "../gozen_parser" }
+gozen_formatter = { path = "../gozen_formatter" }
+gozen_linter = { path = "../gozen_linter" }
+gozen_project = { path = "../gozen_project" }
+gozen_diagnostics = { path = "../gozen_diagnostics" }
+clap.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+anyhow.workspace = true
+colored.workspace = true
+log.workspace = true
+env_logger.workspace = true
+walkdir.workspace = true
+ignore.workspace = true
+globset.workspace = true
+tokio.workspace = true
+gozen_lsp = { path = "../gozen_lsp" }
+rayon.workspace = true
+similar.workspace = true
