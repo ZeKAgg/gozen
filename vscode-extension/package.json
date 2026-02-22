@@ -1,7 +1,7 @@
 {
   "name": "gozen",
   "displayName": "Gozen",
-  "description": "Format, lint, and analyze GDScript with Gozen LSP",
+  "description": "Code quality for GDScript and GDShader. Lint, format, analyze.",
   "version": "0.1.0",
   "publisher": "ZeKAgg",
   "engines": {
