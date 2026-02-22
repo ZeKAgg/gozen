@@ -1,0 +1,95 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://gozen.zeka.gg/schemas/0.1.0/schema.json",
+  "title": "Gozen configuration",
+  "type": "object",
+  "properties": {
+    "files": { "$ref": "#/definitions/FilesConfig" },
+    "vcs": { "$ref": "#/definitions/VcsConfig" },
+    "formatter": { "$ref": "#/definitions/FormatterConfig" },
+    "linter": { "$ref": "#/definitions/LinterConfig" },
+    "analyzer": { "$ref": "#/definitions/AnalyzerConfig" },
+    "shader": { "$ref": "#/definitions/ShaderConfig" }
+  },
+  "definitions": {
+    "FilesConfig": {
+      "type": "object",
+      "properties": {
+        "includes": {
+          "type": "array",
+          "items": { "type": "string" },
+          "default": ["**/*.gd", "**/*.gdshader"]
+        },
+        "ignore": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    },
+    "VcsConfig": {
+      "type": "object",
+      "properties": {
+        "enabled": { "type": "boolean", "default": false },
+        "clientKind": { "type": "string", "default": "git" },
+        "useIgnoreFile": { "type": "boolean", "default": false },
+        "defaultBranch": { "type": "string" }
+      }
+    },
+    "FormatterConfig": {
+      "type": "object",
+      "properties": {
+        "enabled": { "type": "boolean", "default": true },
+        "indentStyle": { "type": "string", "enum": ["tab", "space"], "default": "tab" },
+        "indentWidth": { "type": "integer", "minimum": 1, "maximum": 8, "default": 4 },
+        "lineWidth": { "type": "integer", "minimum": 40, "maximum": 320, "default": 100 },
+        "trailingComma": { "type": "boolean", "default": true },
+        "endOfLine": { "type": "string", "enum": ["lf", "crlf"], "default": "lf" }
+      }
+    },
+    "LinterConfig": {
+      "type": "object",
+      "properties": {
+        "enabled": { "type": "boolean", "default": true },
+        "rules": { "$ref": "#/definitions/RulesConfig" }
+      }
+    },
+    "RulesConfig": {
+      "type": "object",
+      "properties": {
+        "recommended": { "type": "boolean", "default": true },
+        "correctness": { "$ref": "#/definitions/RuleOverrides" },
+        "style": { "$ref": "#/definitions/RuleOverrides" },
+        "performance": { "$ref": "#/definitions/RuleOverrides" },
+        "suspicious": { "$ref": "#/definitions/RuleOverrides" }
+      }
+    },
+    "RuleOverrides": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string",
+        "enum": ["error", "warn", "off"]
+      }
+    },
+    "AnalyzerConfig": {
+      "type": "object",
+      "properties": {
+        "enabled": { "type": "boolean", "default": true },
+        "projectGraph": { "type": "boolean", "default": true }
+      }
+    },
+    "ShaderConfig": {
+      "type": "object",
+      "properties": {
+        "enabled": { "type": "boolean", "default": true },
+        "rules": { "$ref": "#/definitions/ShaderRulesConfig" }
+      }
+    },
+    "ShaderRulesConfig": {
+      "type": "object",
+      "properties": {
+        "recommended": { "type": "boolean", "default": true },
+        "shader": { "$ref": "#/definitions/RuleOverrides" }
+      }
+    }
+  }
+}

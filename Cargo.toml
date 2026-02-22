@@ -1,0 +1,96 @@
+[package]
+name = "gozen_workspace"
+version = "0.0.0"
+edition = "2021"
+
+[lib]
+path = "src/lib.rs"
+
+[dev-dependencies]
+gozen = { path = "crates/gozen_cli" }
+gozen_config = { path = "crates/gozen_config" }
+gozen_diagnostics = { path = "crates/gozen_diagnostics" }
+gozen_formatter = { path = "crates/gozen_formatter" }
+gozen_linter = { path = "crates/gozen_linter" }
+gozen_parser = { path = "crates/gozen_parser" }
+criterion = { version = "0.5", features = ["html_reports"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+
+[[bench]]
+name = "format_bench"
+harness = false
+
+[[bench]]
+name = "lint_bench"
+harness = false
+
+[workspace]
+resolver = "2"
+members = [
+    "crates/gozen_cli",
+    "crates/gozen_config",
+    "crates/gozen_parser",
+    "crates/gozen_formatter",
+    "crates/gozen_linter",
+    "crates/gozen_project",
+    "crates/gozen_diagnostics",
+    "crates/gozen_lsp",
+    "crates/tree-sitter-gdshader",
+]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2021"
+license = "Apache-2.0 license"
+repository = "https://github.com/ZeKAgg/gozen"
+homepage = "https://github.com/ZeKAgg/gozen"
+description = "One toolchain for your Godot project. Format, lint, and analyze GDScript."
+keywords = ["godot", "gdscript", "linter", "formatter", "gamedev"]
+categories = ["development-tools", "command-line-utilities", "game-development"]
+
+[workspace.dependencies]
+# Parsing
+tree-sitter = "0.24"
+tree-sitter-gdscript = { git = "https://github.com/PrestonKnopp/tree-sitter-gdscript", rev = "89e66b6bdc002ab976283f277cbb48b780c5d0e9" }
+tree-sitter-gdshader = { path = "crates/tree-sitter-gdshader" }
+
+# CLI
+clap = { version = "4", features = ["derive"] }
+
+# Config
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+
+# File handling
+walkdir = "2"
+globset = "0.4"
+ignore = "0.4"
+
+# Diagnostics
+colored = "2"
+similar = "2"
+
+# LSP (Phase 2)
+tower-lsp = "0.20"
+tokio = { version = "1", features = ["full"] }
+url = "2"
+
+# Error handling
+anyhow = "1"
+thiserror = "2"
+
+# File watching
+notify = "7"
+
+# Parallelism
+rayon = "1"
+
+# Misc
+log = "0.4"
+env_logger = "0.11"
+
+# The profile that 'dist' will build with
+[profile.dist]
+inherits = "release"
+lto = "thin"
