@@ -1,0 +1,39 @@
+{
+  "files": {
+    "includes": ["**/*.gd", "**/*.gdshader"],
+    "ignore": [".godot", "addons/third_party"]
+  },
+  "formatter": {
+    "enabled": true,
+    "indentStyle": "tab",
+    "indentWidth": 4,
+    "lineWidth": 100,
+    "trailingComma": true
+  },
+  "linter": {
+    "enabled": true,
+    "rules": {
+      "recommended": true,
+      "correctness": {},
+      "style": {
+        "noUntypedDeclaration": "warn",
+        "lineLength": "warn"
+      },
+      "performance": {},
+      "suspicious": {}
+    }
+  },
+  "analyzer": {
+    "enabled": true,
+    "projectGraph": true
+  },
+  "shader": {
+    "enabled": true,
+    "rules": {
+      "recommended": true,
+      "shader": {
+        "avoidDiscard": "warn"
+      }
+    }
+  }
+}
